@@ -3,6 +3,15 @@
 // to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
 const cheerio = require('cheerio');
 
+
+// const $ = cheerio.load((`
+// <ul id="fruits">
+//   <li class="apple">Apple</li>
+//   <li class="orange">Orange</li>
+//   <li>Pear</li>
+// </ul>
+// `));
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -19,7 +28,18 @@ let $ = createSnippetWithJQuery(`
 
 const changeAllClassNames = () => {
   // Solution code here...
+  $('li').addClass('fruit');
 };
+// console.log(changeAllClassNames());
+// console.log($);
+// describe('Testing challenge 1', () => {
+//   test('It should add a class of fruit to all the list items', () => {
+//     changeAllClassNames();
+
+//     expect($('li.apple').hasClass('fruit')).toBe(true);
+//     expect($('li.orange').hasClass('fruit')).toBe(true);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -30,6 +50,17 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 const sortBackwards = (arr) => {
   // Solution code here...
 };
+
+// describe('Testing challenge 2', () => {
+//   test('It should sort high-to-low the numbers in an array', () => {
+//     const nums = [3,4,5,6,7];
+//     expect(sortBackwards(nums)).toStrictEqual([7,6,5,4,3]);
+//     expect(sortBackwards([3,2,1])).toStrictEqual([3,2,1]);
+//     expect(sortBackwards([12,20,3])).toStrictEqual([20, 12, 3]);
+//     expect(sortBackwards([])).toStrictEqual([]);
+//     expect(sortBackwards([1])).toStrictEqual([1]);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
