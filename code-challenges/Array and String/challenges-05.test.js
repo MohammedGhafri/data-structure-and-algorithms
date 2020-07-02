@@ -36,9 +36,40 @@ let $ = createSnippetWithJQuery(`
 </main>
 `);
 
+// let musTemplate = $('#templete').html();
+// let newObj = Mustache.render(musTemplate, this);
+// $('section').append(newObj);
+
 const templateWithJQuery = () => {
   // Solution code here...
+//   for(var i=0;i<starWarsPeople.length;i++){
+//     var a=$('#template:first').clone();
+//     $('main').append(a);
+//   $('section:nth-child(2) h2').text(`${starWarsPeople[i].name}`);
+//   $('section:nth-child(3) h3').text(`${starWarsPeople[i].height}`);
+//   $('section:nth-child(4) p').text(`${starWarsPeople[i].eye_color}`);
+// }
+  
+for(var i=0;i<starWarsPeople.length;i++){
+  var a=$('#template:first').clone();
+// console.log(a);
+$('main').append(a);
+  }
+  $('section:nth-child(2) h2').text(starWarsPeople[0].name);
+  $('section:nth-child(3) h3').text(starWarsPeople[1].height);
+  $('section:nth-child(4) p').text(starWarsPeople[2].eye_color);
+  // console.log(`${starWarsPeople[i].name}`);
 }
+}
+// describe('Testing challenge 1', () => {
+//   test('It should append the star wars people to the DOM', () => {
+//     templateWithJQuery();
+//     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
+//     expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
+//     expect($('section:nth-child(4) p').text()).toStrictEqual('red');
+//   })
+// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
