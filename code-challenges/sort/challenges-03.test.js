@@ -239,6 +239,23 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+
+    if (a.lastName < b.lastName){
+      return -1;
+    } else if (a.lastName > b.lastName){
+      return 1;
+    } else if(a.firstName<b.firstName) {
+      console.log('m')
+      return -1;
+    }else if(a.firstName>b.firstName) {
+      return 1;
+    }else if(a.age<b.age){return -1}
+     else if(a.age>b.age){return 1}
+    // console.log(arr);
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -265,6 +282,58 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  // arr.sort( (a, b) => {
+  //   // console.log(a,b);
+  //   if (a.dayOfWeek < b.dayOfWeek){
+  //     return -1;
+  //   } else if (a.dayOfWeek > b.dayOfWeek){
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  //   });
+    
+  //   return arr;
+  let arr1=[];
+  let arr2= ['Monday','Tuesday','Wednesday','Friday'];
+  arr2.forEach((item,idex)=>{
+    arr.forEach((item1,idx2)=>{
+      if(item==item1.dayOfWeek){
+        
+        arr1.push(item1);
+
+      }
+    })
+  });
+    console.log(arr1);
+  arr1.sort(function(a,b){
+    
+    if(a.dayOfWeek==b.dayOfWeek){
+      console.log(a.dayOfWeek,b.dayOfWeek);
+      console.log((a.end-a.start),(b.end-b.start))
+    if((a.end-a.start)>(b.end-b.start)){
+      return 1;
+    }else if((a.end-a.start)<(b.end-b.start)){
+      return -1;
+    }else{
+      return 0;
+    }}
+  })
+//    arr.sort(function(a, b){
+//     // console.log(a.end-a.start);
+
+//     if (a.start < b.start){
+//        return -1;
+//      } else if (a.start > b.start){
+//        return 1;
+//      } else if((a.end-a.start)>(b.end-b.start)) {
+//        return 1;
+//      }
+
+    
+// });
+  return arr1;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -279,6 +348,7 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  arr.sort(function(a, b){return a.start - b.start});
 };
 
 /* ------------------------------------------------------------------------------------------------
