@@ -3,6 +3,15 @@
 // to learn more about the cheerio library and what it is doing, look at their documentation: https://www.npmjs.com/package/cheerio
 const cheerio = require('cheerio');
 
+
+// const $ = cheerio.load((`
+// <ul id="fruits">
+//   <li class="apple">Apple</li>
+//   <li class="orange">Orange</li>
+//   <li>Pear</li>
+// </ul>
+// `));
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -19,7 +28,18 @@ let $ = createSnippetWithJQuery(`
 
 const changeAllClassNames = () => {
   // Solution code here...
+  $('li').addClass('fruit');
 };
+// console.log(changeAllClassNames());
+// console.log($);
+// describe('Testing challenge 1', () => {
+//   test('It should add a class of fruit to all the list items', () => {
+//     changeAllClassNames();
+
+//     expect($('li.apple').hasClass('fruit')).toBe(true);
+//     expect($('li.orange').hasClass('fruit')).toBe(true);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -29,7 +49,29 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    if (a < b){
+      return 1;
+    } else if (a > b){
+      return -1;
+    } else {
+      return 0;
+    }
+    });
+    return arr;
+  
 };
+
+// describe('Testing challenge 2', () => {
+//   test('It should sort high-to-low the numbers in an array', () => {
+//     const nums = [3,4,5,6,7];
+//     expect(sortBackwards(nums)).toStrictEqual([7,6,5,4,3]);
+//     expect(sortBackwards([3,2,1])).toStrictEqual([3,2,1]);
+//     expect(sortBackwards([12,20,3])).toStrictEqual([20, 12, 3]);
+//     expect(sortBackwards([])).toStrictEqual([]);
+//     expect(sortBackwards([1])).toStrictEqual([1]);
+//   });
+// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -43,6 +85,16 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    if (a < b){
+      return -1;
+    } else if (a > b){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,6 +105,17 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    console.log(a,b);
+    if (a.length < b.length){
+      return -1;
+    } else if (a.length > b.length){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,8 +128,18 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    if (a.toLowerCase() < b.toLowerCase()){
+    console.log(a,b);
+      return -1;
+    } else if (a.toLowerCase() > b.toLowerCase()){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -82,18 +155,42 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+    if (a.price < b.price){
+      return -1;
+    } else if (a.price > b.price){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
+Write a function named sortNumbersByprice that takes in an array of numbers and sorts those numbers by their price.
 
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
+const sortNumbersByprice = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+    if (a.toString().length < b.toString().length){
+      return -1;
+    } else if (a.toString().length > b.toString().length){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    
+    return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -116,6 +213,18 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+    if (a.lastName < b.lastName){
+      return -1;
+    } else if (a.lastName > b.lastName){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,6 +239,23 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+
+    if (a.lastName < b.lastName){
+      return -1;
+    } else if (a.lastName > b.lastName){
+      return 1;
+    } else if(a.firstName<b.firstName) {
+      console.log('m')
+      return -1;
+    }else if(a.firstName>b.firstName) {
+      return 1;
+    }else if(a.age<b.age){return -1}
+     else if(a.age>b.age){return 1}
+    // console.log(arr);
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,6 +282,47 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  // arr.sort( (a, b) => {
+  //   // console.log(a,b);
+  //   if (a.dayOfWeek < b.dayOfWeek){
+  //     return -1;
+  //   } else if (a.dayOfWeek > b.dayOfWeek){
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  //   });
+    
+  //   return arr;
+  let arr1=[];
+  let arr2= ['Monday','Tuesday','Wednesday','Friday'];
+  arr2.forEach((item,idex)=>{
+    arr.forEach((item1,idx2)=>{
+      if(item==item1.dayOfWeek){
+        
+        arr1.push(item1);
+
+      }
+    })
+  });
+    console.log(arr1);
+  arr1.sort(function(a,b){
+    
+    if(a.dayOfWeek==b.dayOfWeek){
+      console.log(a.dayOfWeek,b.dayOfWeek);
+      console.log((a.end-a.start),(b.end-b.start))
+    if((a.end-a.start)>(b.end-b.start)){
+      return 1;
+    }else if((a.end-a.start)<(b.end-b.start)){
+      return -1;
+    }else{
+      return 0;
+    }}
+  })
+
+
+  return arr1;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -170,6 +337,34 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  let arr1=[];
+  let arr2= ['Monday','Tuesday','Wednesday','Friday'];
+  arr2.forEach((item,idex)=>{
+    arr.forEach((item1,idx2)=>{
+      if(item==item1.dayOfWeek){
+        
+        arr1.push(item1);
+
+      }
+    });
+  });
+  arr1.sort(function(a,b){
+    
+    if(a.dayOfWeek==b.dayOfWeek){
+      // console.log(a.dayOfWeek,b.dayOfWeek);
+      // console.log((a.end-a.start),(b.end-b.start))
+    if((a.end-a.start)>(b.end-b.start)){
+      return 1;
+    }else if((a.end-a.start)<(b.end-b.start)){
+      return -1;
+    }else{
+      return 0;
+    }}
+  })
+
+    
+// console.log('arr1 =',arr1);
+  return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -187,6 +382,7 @@ $ = createSnippetWithJQuery(`
 
 const addPearClass = () => {
   // Solution code here...
+  $('li:nth-child(3)').addClass('pear');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -265,10 +461,10 @@ describe('Testing challenge 6', () => {
 });
 
 describe('Testing challenge 7', () => {
-  test('It should sort numbers by their length', () => {
-    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
-    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-    expect(sortNumbersByLength([1,2,3])).toEqual(expect.arrayContaining([1,2,3]));
+  test('It should sort numbers by their price', () => {
+    expect(sortNumbersByprice([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
+    expect(sortNumbersByprice([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
+    expect(sortNumbersByprice([1,2,3])).toEqual(expect.arrayContaining([1,2,3]));
   });
 });
 
