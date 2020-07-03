@@ -100,16 +100,16 @@ const alphabetize = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
+Write a function named sortByprice that takes in an array of strings and returns the same array, with the strings sorted by their price, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByLength = (arr) => {
+const sortByprice = (arr) => {
   // Solution code here...
   arr.sort( (a, b) => {
     console.log(a,b);
-    if (a.length < b.length){
+    if (a.price < b.price){
       return -1;
-    } else if (a.length > b.length){
+    } else if (a.price > b.price){
       return 1;
     } else {
       return 0;
@@ -128,8 +128,18 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    if (a.toLowerCase() < b.toLowerCase()){
+    console.log(a,b);
+      return -1;
+    } else if (a.toLowerCase() > b.toLowerCase()){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
@@ -145,17 +155,29 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+    if (a.price < b.price){
+      return -1;
+    } else if (a.price > b.price){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
+Write a function named sortNumbersByprice that takes in an array of numbers and sorts those numbers by their price.
 
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
+const sortNumbersByprice = (arr) => {
   // Solution code here...
 };
 
@@ -292,13 +314,13 @@ describe('Testing challenge 3', () => {
 });
 
 describe('Testing challenge 4', () => {
-  test('It should sort strings by length', () => {
-    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+  test('It should sort strings by price', () => {
+    const ans = sortByprice(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-    expect(sortByLength(['a'])).toStrictEqual(['a']);
-    expect(sortByLength([])).toStrictEqual([]);
+    expect(sortByprice(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
+    expect(sortByprice(['a'])).toStrictEqual(['a']);
+    expect(sortByprice([])).toStrictEqual([]);
   });
 });
 
@@ -328,10 +350,10 @@ describe('Testing challenge 6', () => {
 });
 
 describe('Testing challenge 7', () => {
-  test('It should sort numbers by their length', () => {
-    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
-    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-    expect(sortNumbersByLength([1,2,3])).toEqual(expect.arrayContaining([1,2,3]));
+  test('It should sort numbers by their price', () => {
+    expect(sortNumbersByprice([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
+    expect(sortNumbersByprice([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
+    expect(sortNumbersByprice([1,2,3])).toEqual(expect.arrayContaining([1,2,3]));
   });
 });
 
