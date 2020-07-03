@@ -179,6 +179,18 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByprice = (arr) => {
   // Solution code here...
+  arr.sort( (a, b) => {
+    // console.log(a,b);
+    if (a.toString().length < b.toString().length){
+      return -1;
+    } else if (a.toString().length > b.toString().length){
+      return 1;
+    } else {
+      return 0;
+    }
+    });
+    
+    return arr;
 };
 
 /*-----------------------------------------------------------------------------------------------
