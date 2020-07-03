@@ -42,7 +42,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex1=/[A-Z]\w*/g;
+  let regex1=/\d/g;
   return( regex1.test(input));
 
 };
@@ -58,8 +58,8 @@ Return an array containing all the matches.
 const isCapitalized = (str) => {
   // Solution code here...
   
-  let regex=/[A-Z](\w)\*/g;
-  return (str.match(regex));
+  let regex=/[A-Z](\w)*/g;
+  return (str.match(regex))||[];
 };
 
 /* ------------------------------------------------------------------------------------------------
