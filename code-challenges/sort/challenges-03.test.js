@@ -100,16 +100,16 @@ const alphabetize = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named sortByprice that takes in an array of strings and returns the same array, with the strings sorted by their price, lowest to highest.
+Write a function named sortByLength that takes in an array of strings and returns the same array, with the strings sorted by their length, lowest to highest.
 ------------------------------------------------------------------------------------------------ */
 
-const sortByprice = (arr) => {
+const sortByLength = (arr) => {
   // Solution code here...
   arr.sort( (a, b) => {
     console.log(a,b);
-    if (a.price < b.price){
+    if (a.length < b.length){
       return -1;
-    } else if (a.price > b.price){
+    } else if (a.length > b.length){
       return 1;
     } else {
       return 0;
@@ -319,19 +319,8 @@ const sortMeetingsByDay = (arr) => {
       return 0;
     }}
   })
-//    arr.sort(function(a, b){
-//     // console.log(a.end-a.start);
 
-//     if (a.start < b.start){
-//        return -1;
-//      } else if (a.start > b.start){
-//        return 1;
-//      } else if((a.end-a.start)>(b.end-b.start)) {
-//        return 1;
-//      }
 
-    
-// });
   return arr1;
 
 };
@@ -348,7 +337,34 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
-  arr.sort(function(a, b){return a.start - b.start});
+  let arr1=[];
+  let arr2= ['Monday','Tuesday','Wednesday','Friday'];
+  arr2.forEach((item,idex)=>{
+    arr.forEach((item1,idx2)=>{
+      if(item==item1.dayOfWeek){
+        
+        arr1.push(item1);
+
+      }
+    });
+  });
+  arr1.sort(function(a,b){
+    
+    if(a.dayOfWeek==b.dayOfWeek){
+      // console.log(a.dayOfWeek,b.dayOfWeek);
+      // console.log((a.end-a.start),(b.end-b.start))
+    if((a.end-a.start)>(b.end-b.start)){
+      return 1;
+    }else if((a.end-a.start)<(b.end-b.start)){
+      return -1;
+    }else{
+      return 0;
+    }}
+  })
+
+    
+// console.log('arr1 =',arr1);
+  return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -408,13 +424,13 @@ describe('Testing challenge 3', () => {
 });
 
 describe('Testing challenge 4', () => {
-  test('It should sort strings by price', () => {
-    const ans = sortByprice(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+  test('It should sort strings by length', () => {
+    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-    expect(sortByprice(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-    expect(sortByprice(['a'])).toStrictEqual(['a']);
-    expect(sortByprice([])).toStrictEqual([]);
+    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
+    expect(sortByLength(['a'])).toStrictEqual(['a']);
+    expect(sortByLength([])).toStrictEqual([]);
   });
 });
 
