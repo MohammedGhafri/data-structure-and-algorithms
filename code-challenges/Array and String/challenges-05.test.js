@@ -38,6 +38,18 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
   // Solution code here...
+
+  let i = 2;
+  starWarsPeople.forEach((item, ide) => {
+    // console.log(starWarsPeople.length)
+
+    let a = $('#template').clone();
+    $('main').append(a);
+    $(`section:nth-child(${i}) h2`).text(item.name);
+    $(`section:nth-child(${i}) h3`).text(item.height);
+    $(`section:nth-child(${i}) p`).text(item.eye_color);
+    i++;
+  });
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +68,13 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for (let i = 1; i <= str.length; i++) {
+
+    result.push((str.slice(str.length - i, str.length)));
+  }
+
+  result.reverse();
+  result.push('');
   return result;
 };
 
@@ -69,6 +88,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
+
 };
 
 
@@ -116,6 +137,43 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach((item,idx)=>{
+  //   let n=0;
+  //   let i=0;
+  //     do {
+  //    n= item.indexOf(" ",item.length-i)
+  //     i++;
+  //   }
+  //   while (n==-1);
+  //   result.push(item.slice(n+1));
+
+  let n=item.indexOf("zed");
+  if(n!=-1){
+    console.log(item.slice(n+4))
+    result.push(item.slice(n+4));
+  }
+  n=item.indexOf("nds");
+  if(n!=-1){
+    console.log(item.slice(n+4))
+     result.push(item.slice(n+4));
+  }
+  n=item.indexOf("ons");
+  if(n!=-1){
+    console.log(item.slice(n+4))
+     result.push(item.slice(n+4));
+  }
+  n=item.indexOf("ups");
+  if(n!=-1){
+    console.log(item.slice(n+4))
+     result.push(item.slice(n+4));
+  }
+  n=item.indexOf("und ");
+  if(n!=-1){
+    console.log(item.slice(n+4))
+     result.push(item.slice(n+4));
+  }
+  
+  });
   return result;
 };
 
@@ -338,6 +396,6 @@ describe('Testing challenge 11', () => {
 });
 
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 };
