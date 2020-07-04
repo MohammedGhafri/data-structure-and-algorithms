@@ -38,6 +38,18 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
   // Solution code here...
+  
+  let i=2;
+  starWarsPeople.forEach((item,ide)=>{
+    // console.log(starWarsPeople.length)
+
+    let a=$('#template').clone();
+    $('main').append(a);
+    $(`section:nth-child(${i}) h2`).text(item.name);
+    $(`section:nth-child(${i}) h3`).text(item.height);
+    $(`section:nth-child(${i}) p`).text(item.eye_color);
+    i++;
+});
 }
 
 /* ------------------------------------------------------------------------------------------------
