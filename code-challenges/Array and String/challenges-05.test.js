@@ -68,6 +68,13 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for(let i=1;i<=str.length;i++){
+    
+    result.push((str.slice(str.length-i,str.length)));
+  }
+  
+  result.reverse();
+  result.push('');
   return result;
 };
 
