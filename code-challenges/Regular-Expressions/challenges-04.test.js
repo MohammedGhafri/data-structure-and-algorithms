@@ -24,6 +24,8 @@ let $ = createSnippetWithJQuery(`
 
 const generateSubmitButton = () => {
   // Solution code here...
+  let button='<button text="submit">submit</button>';
+$('form').append(button);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,6 +42,9 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  let regex1=/\d/g;
+  return( regex1.test(input));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +57,9 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  
+  let regex=/[A-Z](\w)*/g;
+  return (str.match(regex))||[];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,6 +70,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let arr1=[];
+  let regex=/^[A-J]\w*/g;
+  arr.forEach((item,idx)=>{
+    if(item.match(regex)){
+    arr1.push(item);
+    };
+  });
+return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,6 +94,8 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  let regex=/(^October|^Oct|^october(\b)|^oct(\b))/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,6 +110,9 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let regex=/[a-z]\w*\s/gi;
+  return str.match(regex);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,6 +129,9 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  let regex=/a|e|i|o|u/gi;
+  return str.replace(regex,'_');
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,6 +148,9 @@ const seashells = 'She sells seashells by the seashore. The shells she sells are
 
 const findShells = (str) => {
   // Solution code here...
+  let reg1=/[a-z]\w*ells\b/g;
+
+  return str.match(reg1);
 };
 
 /* ------------------------------------------------------------------------------------------------
