@@ -165,6 +165,28 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  let i;
+  let result = false;
+  arr.forEach((item, idx) => {
+
+    if (characters[idx]['name'] == character) {
+      i = idx;
+      console.log(i)
+
+      let a = Object.entries(characters[idx].children);
+      if (a == '') {
+
+        result = false;
+      } else {
+
+        result = true;
+      }
+    }
+  })
+
+
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
