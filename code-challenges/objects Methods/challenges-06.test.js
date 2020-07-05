@@ -71,17 +71,17 @@ let $ = createSnippetWithJQuery(`
 
 const templatingWithMustache = () => {
   // Solution code here...
-  let arr=[];
-  characters.forEach((b,idx)=>{
+  let arr = [];
+  characters.forEach((b, idx) => {
     let musTemplate = $('#template').html();
-      let newObj = Mustache.render(musTemplate, b);
-      $('main').append(newObj);
-      arr.push(newObj);
+    let newObj = Mustache.render(musTemplate, b);
+    $('main').append(newObj);
+    arr.push(newObj);
 
-  
+
   });
-    // $('section').append(newObj);
-    return arr;
+  // $('section').append(newObj);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,13 +91,15 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,6 +111,9 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.forEach(houseName => {
+    houses.push(houseName.house);
+  })
   return houses;
 };
 
@@ -126,7 +131,28 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let i;
+  let result = false;
+  arr.forEach((item, idx) => {
 
+    if (characters[idx]['name'] == character) {
+      i = idx;
+      console.log(i)
+
+      let a = Object.values(characters[idx].children);
+      if (a == '') {
+
+        result = false;
+      } else {
+
+        result = true;
+      }
+    }
+  })
+
+
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -263,6 +289,6 @@ describe('Testing challenge 8', () => {
 });
 
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 }
