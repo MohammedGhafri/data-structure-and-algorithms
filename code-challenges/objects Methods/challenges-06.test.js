@@ -197,6 +197,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
+  let i=0;
+  characters.forEach(item=>{Object.values(item).forEach((item,idx)=>{
+    if(item){
+  i++;}
+  });
+})
+return i;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -212,8 +219,34 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  arr.forEach((item)=>{
+    let a=0,s=0,c=0;
+   
+    if(Object.values(item)[1]){
+    
+     s=1;}
+     c=Object.values(item)[2].length
+    
+    let sum=1+s+c;
+    let housename=Object.values(item)[3];
+    // sizes.push(new House(housename,sum));
+    sizes.push(
+      {
+        "house":housename,
+        "members": sum
+      }
+    );
+      
+    })
+   
   return sizes;
 };
+//  function House(house,members){
+//     this.house=house;
+//     this.members=members;
+    
+//   }
+  
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
@@ -236,6 +269,25 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 const houseSurvivors = (arr) => {
   const survivors = [];
   // Solution code here...
+  arr.forEach((item)=>{
+    let a=0,s=0,c=0;
+   
+    if(Object.values(item)[1]){
+    
+     s=1;}
+     c=Object.values(item)[2].length
+    
+    let sum=1+c;
+    let housename=Object.values(item)[3];
+    // sizes.push(new House(housename,sum));
+    survivors.push(
+      {
+        "house":housename,
+        "members": sum
+      }
+    );
+      
+    })
   return survivors;
 };
 
