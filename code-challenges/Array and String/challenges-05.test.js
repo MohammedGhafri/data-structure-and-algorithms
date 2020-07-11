@@ -42,25 +42,6 @@ let $ = createSnippetWithJQuery(`
 
 const templateWithJQuery = () => {
   // Solution code here...
-<<<<<<< HEAD
-//   for(var i=0;i<starWarsPeople.length;i++){
-//     var a=$('#template:first').clone();
-//     $('main').append(a);
-//   $('section:nth-child(2) h2').text(`${starWarsPeople[i].name}`);
-//   $('section:nth-child(3) h3').text(`${starWarsPeople[i].height}`);
-//   $('section:nth-child(4) p').text(`${starWarsPeople[i].eye_color}`);
-// }
-  
-for(var i=0;i<starWarsPeople.length;i++){
-  var a=$('#template:first').clone();
-// console.log(a);
-$('main').append(a);
-  }
-  $('section:nth-child(2) h2').text(starWarsPeople[0].name);
-  $('section:nth-child(3) h3').text(starWarsPeople[1].height);
-  $('section:nth-child(4) p').text(starWarsPeople[2].eye_color);
-  // console.log(`${starWarsPeople[i].name}`);
-=======
 
   let i = 2;
   starWarsPeople.forEach((item, ide) => {
@@ -73,8 +54,7 @@ $('main').append(a);
     $(`section:nth-child(${i}) p`).text(item.eye_color);
     i++;
   });
->>>>>>> master
-}
+
 }
 // describe('Testing challenge 1', () => {
 //   test('It should append the star wars people to the DOM', () => {
