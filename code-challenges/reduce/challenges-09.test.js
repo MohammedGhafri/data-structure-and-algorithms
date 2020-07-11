@@ -461,6 +461,23 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  
+  let a = arr.filter(item => {
+    if(/a/gi.test(item.name)){
+        if (Object.keys(item).length == 4) {
+          return item;
+        }
+      
+    }
+      })
+      let b=a.reduce((acc,item,idx)=>{
+    
+    // acc.concat(item.children);
+    acc.push.apply(acc, item.children)
+    return acc
+      },[])
+    
+        return b
 };
 
 /* ------------------------------------------------------------------------------------------------
