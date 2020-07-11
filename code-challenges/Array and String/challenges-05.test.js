@@ -36,6 +36,10 @@ let $ = createSnippetWithJQuery(`
 </main>
 `);
 
+// let musTemplate = $('#templete').html();
+// let newObj = Mustache.render(musTemplate, this);
+// $('section').append(newObj);
+
 const templateWithJQuery = () => {
   // Solution code here...
 
@@ -50,7 +54,17 @@ const templateWithJQuery = () => {
     $(`section:nth-child(${i}) p`).text(item.eye_color);
     i++;
   });
+
 }
+// describe('Testing challenge 1', () => {
+//   test('It should append the star wars people to the DOM', () => {
+//     templateWithJQuery();
+//     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
+//     expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
+//     expect($('section:nth-child(4) p').text()).toStrictEqual('red');
+//   })
+// });
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
