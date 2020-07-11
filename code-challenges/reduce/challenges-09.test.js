@@ -280,13 +280,13 @@ const reversedString = (str) => {
   // Solution code here...
 
   let a=str.split('')
-  let b= a.reduce((acc,val,idx)=>{
-    acc.unshift(val)
-    return acc;
-  },[]);
-  let c=b.join("")
-  
-  return c
+let b= a.reduce((acc,val,idx)=>{
+  acc.unshift(val)
+  return acc;
+},[]).join("");
+
+
+return b
 
 };
 
@@ -341,6 +341,12 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  let a=arr.reduce((acc,item,idx)=>{
+    if(item.children){
+acc+=item.children.length;}
+return acc
+  },0);
+  return a
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -353,6 +359,11 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  return (arr.reduce((acc,item,idx)=>{
+    acc=acc+item;
+    return acc
+      },0)/arr.length)
+      
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -374,6 +385,13 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  let a=arr.reduce((acc,value,n)=>{
+    if(isPrime(value)){
+      acc++;
+    }
+    return acc
+      },0)
+      return a
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -417,6 +435,18 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+
+  let a=arr.reduce((acc,val,idx)=>{
+
+    if(val.stat.name==statName){
+      
+      acc=val;
+    }
+    return acc;
+      },{})
+      
+      return a
+
 };
 
 /* ------------------------------------------------------------------------------------------------
