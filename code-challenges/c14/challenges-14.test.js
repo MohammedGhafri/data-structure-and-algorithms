@@ -12,19 +12,27 @@ const createServer = () => {
   const express = require('express');
   const app = express();
 
-  app.get('/', function (req, res) {
+
+  app.get('/', (req, res)=> {
     res.status(200).send('ok');
   });
 
-  app.delete('/things/1', function (req, res) {
+  app.delete('/things/1',  (req, res)=> {
     res.sendStatus(405);
   });
+
+  app.get('*', (req, res) => {
+    res.sendStatus(404);
+
+})
 
   var server = app.listen(3000, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
   });
   return server;
+
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +45,11 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
+
+  let array =arr.map(item=>{
+    return (item.charAt(0).toUpperCase() + item.slice(1))
+   })
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,6 +125,13 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let result = []
+   arr.forEach(item=>{
+    if(item.mass > 77){
+      result.push(item.name);
+    }
+  })
+  return result.join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,6 +150,7 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort((a, b) => a[property] > b[property] ? 1 : -1);
 };
 
 /* ------------------------------------------------------------------------------------------------
