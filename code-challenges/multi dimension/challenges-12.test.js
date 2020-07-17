@@ -10,6 +10,11 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+  let array = arr.reduce((acc, item, idx) => {
+    // console.log(acc)
+    return (acc > item ? acc : item)
+  }, 0)
+  return array
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,7 +41,22 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let arr = [];
 
+  hoursOpen.forEach((item, idx) => {
+    let summation = stores.reduce((acc, item2) => {
+
+      acc += item2[idx];
+      return acc;
+
+    }, 0);
+    arr.push(summation);
+
+  })
+
+
+  return arr;
+  // hoursOpen.forEach((item,idx)=>{})
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,6 +71,30 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+
+  let arr=[];
+  hours.forEach((item, idx) => {
+    // pat['slaes']=`${data[idx]} cookies`;
+    // pat['time']=`${item}`;
+  // let pat = {
+  //   slaes: `${data[idx]} cookies`,
+  //   time:`${item}`
+  // }
+    arr.push( {
+     slaes: `${data[idx]} cookies`,
+     time:`${item}`
+   });
+    // console.log(arr)
+
+    // new Pat(data[idx], item);
+    // //  console.log(Pat.all)
+  })
+
+
+
+
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +120,18 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+
+  let result;
+  arr.forEach(value => {
+    if (value.store == 'Pet store') {
+      value.items.forEach(item => {
+        if (item.name == 'Treats') {
+          result = item.quantity;
+        }
+      });
+    }
+  })
+  return result
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -197,7 +253,7 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should create an object of data for each store', () => {
-    expect(salesData(hoursOpen, grandTotal(cookieStores))).toStrictEqual([
+    expect((hoursOpen, grandTotal(cookieStores))).toStrictEqual([
       { sales: '88 cookies', time: '9 a.m.' },
       { sales: '153 cookies', time: '10 a.m.' },
       { sales: '252 cookies', time: '11 a.m.' },
